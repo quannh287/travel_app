@@ -19,7 +19,7 @@ class ChooseTopicPage extends StatelessWidget {
           portrait: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
-               Flexible(
+              Flexible(
                 flex: 1,
                 fit: FlexFit.tight,
                 child: _Header(),
@@ -43,11 +43,7 @@ class ChooseTopicPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const Flexible(
-                flex: 2,
-                fit: FlexFit.tight,
-                child: _TopicGridView()
-              ),
+              const Flexible(flex: 2, fit: FlexFit.tight, child: _TopicGridView()),
             ],
           ),
         ),
@@ -79,6 +75,7 @@ class _TopicGridView extends StatelessWidget {
           crossAxisCount: 2,
           itemCount: topics.length,
           crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           itemBuilder: (context, index) {
             final topic = topics[index];
