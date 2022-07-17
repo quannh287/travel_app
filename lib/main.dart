@@ -1,8 +1,16 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:meditation/pages/welcome_page.dart';
+import 'package:meditation/pages/choose_topic_page.dart';
+import 'package:meditation/pages/get_started.dart';
 
 void main() {
-  runApp(const MeditationApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MeditationApp(),
+    )
+  );
 }
 
 class MeditationApp extends StatelessWidget {
@@ -14,7 +22,12 @@ class MeditationApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomePage(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '$GetStartedPage',
+      routes: {
+        '$GetStartedPage': (_) => const GetStartedPage(),
+        '$ChooseTopicPage': (_) => const ChooseTopicPage(),
+      },
     );
   }
 }
